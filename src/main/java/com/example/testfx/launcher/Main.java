@@ -26,7 +26,7 @@ public class Main extends Application {
         //customise the stage
         Image icon = new Image("calendar_icon.png");
         stage.getIcons().add(icon);
-        stage.setTitle("Calendar");
+        stage.setTitle("Calendar DRIP");
 
         stage.show();
     }
