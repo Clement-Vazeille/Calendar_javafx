@@ -26,7 +26,7 @@ public class Main extends Application {
         //customise the stage
         Image icon = new Image("calendar_icon.png");
         stage.getIcons().add(icon);
-        stage.setTitle("El Calendar del Oipiq");
+        stage.setTitle("Calendar");
 
         stage.show();
     }
