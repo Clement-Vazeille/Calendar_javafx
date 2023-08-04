@@ -5,6 +5,8 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -26,7 +28,17 @@ public class Main extends Application {
         //customise the stage
         Image icon = new Image("calendar_icon.png");
         stage.getIcons().add(icon);
-        stage.setTitle("Calendar DRIP");
+        stage.setTitle("Calendar");
+        stage.setHeight(480);
+        stage.setWidth(640);
+
+        Text text = new Text();
+        text.setText("AOUT");
+        text.setX(300);
+        text.setY(40);
+        text.setFont(Font.font("Arial Black",25));
+
+        root.getChildren().add(text);
 
         stage.show();
     }
