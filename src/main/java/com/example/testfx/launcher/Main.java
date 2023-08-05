@@ -45,7 +45,6 @@ public class Main extends Application {
         line.setEndX(360);
         line.setEndY(45);
         line.setStrokeWidth(2);
-        root.getChildren().add(line);
 
         root.getChildren().add(text);
         root.getChildren().add(line);
