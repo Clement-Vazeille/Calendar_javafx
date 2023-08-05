@@ -5,6 +5,7 @@ import javafx.scene.Group;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Line;
 import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -34,11 +35,20 @@ public class Main extends Application {
 
         Text text = new Text();
         text.setText("AOUT");
-        text.setX(300);
+        text.setX(270);
         text.setY(40);
         text.setFont(Font.font("Arial Black",25));
 
+        Line line = new Line();
+        line.setStartX(250);
+        line.setStartY(45);
+        line.setEndX(360);
+        line.setEndY(45);
+        line.setStrokeWidth(2);
+        root.getChildren().add(line);
+
         root.getChildren().add(text);
+        root.getChildren().add(line);
 
         stage.show();
     }
