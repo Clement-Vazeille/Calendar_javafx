@@ -31,29 +31,33 @@ public class Main extends Application {
         Scene scene = new Scene(root, Color.ALICEBLUE);
         stage.setScene(scene);
 
+        int x_size = 630;
+        int y_size = 480;
         //customise the stage
         Image icon = new Image("calendar_icon.png");
         stage.getIcons().add(icon);
         stage.setTitle("Calendar");
-        stage.setHeight(480);
-        stage.setWidth(640);
+        stage.setHeight(y_size);
+        stage.setWidth(x_size);
 
         Text text = new Text();
-        text.setText("AOUT");
-        text.setX(270);
-        text.setY(40);
+        String month = "MAI";
+        text.setText(month);
+        text.setX((x_size/2)-(22*month.length()/2)-10);
+        text.setY(y_size/11);
         text.setFont(Font.font("Arial Black",25));
 
         Line line = new Line();
-        line.setStartX(250);
-        line.setStartY(45);
-        line.setEndX(360);
-        line.setEndY(45);
+        line.setStartX((x_size/2)-(22*month.length()/2)-15);
+        line.setStartY(y_size/10);
+        line.setEndX((x_size/2)+(18*month.length()/2)-10);
+        line.setEndY(y_size/10);
         line.setStrokeWidth(2);
 
         button_left = new Button();
         button_left.setText("Precedent Month");
-        button_left.setLayoutY(200);
+        button_left.setLayoutY(y_size*0.38);
+        button_left.setLayoutX(5);
         button_left.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -68,8 +72,8 @@ public class Main extends Application {
 
         button_right = new Button();
         button_right.setText("Next Month");
-        button_right.setLayoutY(200);
-        button_right.setLayoutX(540);
+        button_right.setLayoutY(y_size*0.38);
+        button_right.setLayoutX(x_size-100);
         button_right.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
