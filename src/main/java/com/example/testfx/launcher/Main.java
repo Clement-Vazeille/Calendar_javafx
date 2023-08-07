@@ -13,7 +13,10 @@ import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
+import  java.time.LocalDate;
+
 import java.io.IOException;
+import java.time.chrono.ChronoLocalDate;
 
 public class Main extends Application {
 
@@ -58,6 +61,15 @@ public class Main extends Application {
         button_left.setText("Precedent Month");
         button_left.setLayoutY(y_size*0.38);
         button_left.setLayoutX(5);
+
+        //L'idée serait de depuis un autre fichier générer un List<Text> qui contiendrait chaque texte
+        //Avec en entrée une local date (pour le mois et l'année)
+        LocalDate date_test = LocalDate.now();
+        Text text_date = new Text(String.valueOf(date_test.getDayOfMonth()));
+        text_date.setX(300);
+        text_date.setY(300);
+        text_date.setFont(Font.font("Agency FB",14));
+        root.getChildren().add(text_date);
         button_left.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
