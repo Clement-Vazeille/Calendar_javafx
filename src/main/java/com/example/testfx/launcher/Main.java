@@ -45,7 +45,7 @@ public class Main extends Application {
         stage.setWidth(x_size);
 
         Text text = new Text();
-        String month = "MAI";
+        String month = LocalDate.now().getMonth().toString();
         text.setText(month);
         text.setX((x_size/2)-(22*month.length()/2)-10);
         text.setY(y_size/11);
@@ -98,6 +98,9 @@ public class Main extends Application {
                 root.getChildren().add(textadded);
             }
         });
+
+        //add the 7 days of the week in text objects
+        Text[] days = new Text[7];
 
         root.getChildren().add(text);
         root.getChildren().add(line);
