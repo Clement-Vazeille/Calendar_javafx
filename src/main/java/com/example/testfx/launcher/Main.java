@@ -1,5 +1,6 @@
 package com.example.testfx.launcher;
 
+import com.example.testfx.date_gestion.Date_generator;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -16,7 +17,7 @@ import javafx.stage.Stage;
 import  java.time.LocalDate;
 
 import java.io.IOException;
-import java.time.chrono.ChronoLocalDate;
+import java.util.List;
 
 public class Main extends Application {
 
@@ -102,6 +103,8 @@ public class Main extends Application {
         root.getChildren().add(line);
         root.getChildren().add(button_left);
         root.getChildren().add(button_right);
+
+        List<LocalDate> l = Date_generator.month_day_list(date_test);
 
         stage.show();
     }
