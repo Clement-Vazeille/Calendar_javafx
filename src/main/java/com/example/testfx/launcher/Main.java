@@ -102,6 +102,14 @@ public class Main extends Application {
         //add the 7 days of the week in text objects
         Text[] days = new Text[7];
 
+        //positions of the seven days of the week
+        double[] pos_days = new double[7];
+
+        for(int i=0;i<7;i++)
+        {
+
+        }
+
         root.getChildren().add(text);
         root.getChildren().add(line);
         root.getChildren().add(button_left);
