@@ -2,7 +2,8 @@
 Mon premier projet en java
 Fait sur intellij à l'aide de la bibliothèque javafx
 
-Pour le moment j'ai choisi et appliqué l'icone et fait apparaitre une fenère de base avec un titre
+La génération et l'affichage des jours fonctionne ! 
+Il reste à rajouter l'option qui permet de changer de mois.
 
 Le but actuel de l'application est assez simple, een haut il y a écrit le mois actuel, puis il y a un genre de tableau des jours avec chaque jour qui est dans son type de jour (lun,mar,etc)
 Lorsqu'on appui sur les boutons positionnés à gauches ou à droites on passe sur le mois d'avant/après.
