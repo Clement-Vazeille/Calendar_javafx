@@ -47,14 +47,14 @@ public class Main extends Application {
         Text text = new Text();
         String month = LocalDate.now().getMonth().toString();
         text.setText(month);
-        text.setX((x_size/2)-(22*month.length()/2)-10);
+        text.setX((x_size/2)-(22*month.length()/2));
         text.setY(y_size/11);
         text.setFont(Font.font("Arial Black",25));
 
         Line line = new Line();
-        line.setStartX((x_size/2)-(22*month.length()/2)-15);
+        line.setStartX((x_size/2)-(22*month.length()/2)-5);
         line.setStartY(y_size/10);
-        line.setEndX((x_size/2)+(18*month.length()/2)-10);
+        line.setEndX((x_size/2)+(18*month.length()/2));
         line.setEndY(y_size/10);
         line.setStrokeWidth(2);
 
@@ -63,14 +63,6 @@ public class Main extends Application {
         button_left.setLayoutY(y_size*0.38);
         button_left.setLayoutX(5);
 
-        //L'idée serait de depuis un autre fichier générer un List<Text> qui contiendrait chaque texte
-        //Avec en entrée une local date (pour le mois et l'année)
-        LocalDate date_test = LocalDate.now();
-        Text text_date = new Text(String.valueOf(date_test.getDayOfMonth()));
-        text_date.setX(300);
-        text_date.setY(300);
-        text_date.setFont(Font.font("Agency FB",14));
-        root.getChildren().add(text_date);
         button_left.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
@@ -101,13 +93,23 @@ public class Main extends Application {
 
         //add the 7 days of the week in text objects
         Text[] days = new Text[7];
+        days[0]=new Text("Mon");
+        days[1]= new Text("Tue");
+        days[2]= new Text("Wed");
+        days[3]= new Text("Thu");
+        days[4]= new Text("Fri");
+        days[5]= new Text("Sat");
+        days[6]= new Text("Sun");
 
         //positions of the seven days of the week
         double[] pos_days = new double[7];
 
         for(int i=0;i<7;i++)
         {
-
+           days[i].setX((0.24 +i*0.08)*x_size);
+           days[i].setY(y_size*0.19);
+           days[i].setFont(Font.font("Agency FB",20));
+           root.getChildren().add(days[i]);
         }
 
         root.getChildren().add(text);
@@ -115,7 +117,12 @@ public class Main extends Application {
         root.getChildren().add(button_left);
         root.getChildren().add(button_right);
 
-        List<LocalDate> l = Date_generator.month_day_list(date_test);
+        List<LocalDate> monthLocalDates = Date_generator.month_day_list(LocalDate.now());
+        List<Text> monthTexts = Date_generator.days_text_list_generator(monthLocalDates,x_size,y_size);
+
+        for (Text dayText:monthTexts){
+            root.getChildren().add(dayText);
+        }
 
         stage.show();
     }
