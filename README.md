@@ -1,12 +1,11 @@
 # calendrier
-Mon premier projet en java
-Fait sur intellij à l'aide de la bibliothèque javafx
+My first java project
+Made on intellij with the javafx library
 
-Pour le moment j'ai choisi et appliqué l'icone et fait apparaitre une fenère de base avec un titre
+it isactuallyworking for the current month
+Just need to make switching month possible
+the goal is that by pressing left or right button the scene will switch to the previous/next month
 
-Le but actuel de l'application est assez simple, een haut il y a écrit le mois actuel, puis il y a un genre de tableau des jours avec chaque jour qui est dans son type de jour (lun,mar,etc)
-Lorsqu'on appui sur les boutons positionnés à gauches ou à droites on passe sur le mois d'avant/après.
+For the moment there are two files, a main one that do almost everything and another one that handle date genration
 
-Pour le moment il y a 2 fichiers de code en java, main qui fait à peu près tout et Date Generator qui s'occupe de tout ce qui est génération de date. 
-
-Ressources : https://www.youtube.com/watch?app=desktop&v=9XJicRt_FaI&t=4093s guide youtube complet de 4 heures sur javafx (30:29)
+Ressources : https://www.youtube.com/watch?app=desktop&v=9XJicRt_FaI&t=4093s complete youtube guide about javafx
