@@ -1,5 +1,6 @@
 package com.example.testfx.launcher;
 
+import com.example.testfx.Scene_manipulation;
 import com.example.testfx.date_gestion.Date_generator;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -28,12 +29,17 @@ public class Main extends Application {
 
     Button button_left;
     Button button_right;
+    LocalDate date = LocalDate.now();
+    List<Text> monthTexts;
+    Group root;
     @Override
     public void start(Stage stage) throws IOException {
         //create a scene and set it to the stage
-        Group root = new Group();
+        root = new Group();
         Scene scene = new Scene(root, Color.ALICEBLUE);
         stage.setScene(scene);
+
+
 
         int x_size = 630;
         int y_size = 480;
@@ -44,17 +50,16 @@ public class Main extends Application {
         stage.setHeight(y_size);
         stage.setWidth(x_size);
 
-        Text text = new Text();
+        Text monthText = new Text();
+        monthText.setFont(Font.font("Arial Black",25));
         String month = LocalDate.now().getMonth().toString();
-        text.setText(month);
-        text.setX((x_size/2)-(22*month.length()/2));
-        text.setY(y_size/11);
-        text.setFont(Font.font("Arial Black",25));
+        monthText.setY(y_size/11);
+
 
         Line line = new Line();
-        line.setStartX((x_size/2)-(22*month.length()/2)-5);
+
         line.setStartY(y_size/10);
-        line.setEndX((x_size/2)+(18*month.length()/2));
+
         line.setEndY(y_size/10);
         line.setStrokeWidth(2);
 
@@ -66,12 +71,9 @@ public class Main extends Application {
         button_left.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("Left");
-                Text textadded = new Text();
-                textadded.setText("Sheeeesh");
-                textadded.setX(80);
-                textadded.setY(200);
-                root.getChildren().add(textadded);
+                date=date.plusMonths(-1);
+                Scene_manipulation.removeTextList(root,monthTexts);
+                monthTexts=Scene_manipulation.setUpScene(root,line,x_size,y_size,monthText,date);
             }
         });
 
@@ -82,12 +84,9 @@ public class Main extends Application {
         button_right.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
-                System.out.println("right");
-                Text textadded = new Text();
-                textadded.setText("Sheeeesh");
-                textadded.setX(500);
-                textadded.setY(200);
-                root.getChildren().add(textadded);
+                date=date.plusMonths(1);
+                Scene_manipulation.removeTextList(root,monthTexts);
+                monthTexts=Scene_manipulation.setUpScene(root,line,x_size,y_size,monthText,date);
             }
         });
 
@@ -101,8 +100,6 @@ public class Main extends Application {
         days[5]= new Text("Sat");
         days[6]= new Text("Sun");
 
-        //positions of the seven days of the week
-        double[] pos_days = new double[7];
 
         for(int i=0;i<7;i++)
         {
@@ -112,17 +109,12 @@ public class Main extends Application {
            root.getChildren().add(days[i]);
         }
 
-        root.getChildren().add(text);
+        root.getChildren().add(monthText);
         root.getChildren().add(line);
         root.getChildren().add(button_left);
         root.getChildren().add(button_right);
 
-        List<LocalDate> monthLocalDates = Date_generator.month_day_list(LocalDate.now());
-        List<Text> monthTexts = Date_generator.days_text_list_generator(monthLocalDates,x_size,y_size);
-
-        for (Text dayText:monthTexts){
-            root.getChildren().add(dayText);
-        }
+        monthTexts=Scene_manipulation.setUpScene(root,line,x_size,y_size,monthText,LocalDate.now());
 
         stage.show();
     }
