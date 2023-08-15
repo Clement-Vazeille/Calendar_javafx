@@ -52,8 +52,12 @@ public class Main extends Application {
 
         Text monthText = new Text();
         monthText.setFont(Font.font("Arial Black",25));
-        String month = LocalDate.now().getMonth().toString();
         monthText.setY(y_size/11);
+
+        Text yearText= new Text();
+        yearText.setFont(Font.font("Agency FB",30));
+        yearText.setY(y_size/13);
+        yearText.setX(x_size/50);
 
 
         Line line = new Line();
@@ -73,7 +77,7 @@ public class Main extends Application {
             public void handle(ActionEvent event) {
                 date=date.plusMonths(-1);
                 Scene_manipulation.removeTextList(root,monthTexts);
-                monthTexts=Scene_manipulation.setUpScene(root,line,x_size,y_size,monthText,date);
+                monthTexts=Scene_manipulation.setUpScene(root,line,x_size,y_size,monthText,yearText,date);
             }
         });
 
@@ -86,7 +90,7 @@ public class Main extends Application {
             public void handle(ActionEvent event) {
                 date=date.plusMonths(1);
                 Scene_manipulation.removeTextList(root,monthTexts);
-                monthTexts=Scene_manipulation.setUpScene(root,line,x_size,y_size,monthText,date);
+                monthTexts=Scene_manipulation.setUpScene(root,line,x_size,y_size,monthText,yearText,date);
             }
         });
 
@@ -110,11 +114,12 @@ public class Main extends Application {
         }
 
         root.getChildren().add(monthText);
+        root.getChildren().add(yearText);
         root.getChildren().add(line);
         root.getChildren().add(button_left);
         root.getChildren().add(button_right);
 
-        monthTexts=Scene_manipulation.setUpScene(root,line,x_size,y_size,monthText,LocalDate.now());
+        monthTexts=Scene_manipulation.setUpScene(root,line,x_size,y_size,monthText,yearText,LocalDate.now());
 
         stage.show();
     }
