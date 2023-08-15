@@ -2,9 +2,9 @@
 My first java project
 Made on intellij with the javafx library
 
-it isactuallyworking for the current month
-Just need to make switching month possible
-the goal is that by pressing left or right button the scene will switch to the previous/next month
+it isactuallyworking for the current month and it is also now possible to go to the next/previous month
+
+A new feature would be to show the yearof the actul month in a corner
 
 For the moment there are two files, a main one that do almost everything and another one that handle date genration
 
